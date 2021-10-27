@@ -3,7 +3,7 @@ import React from "react";
 export default class Practical extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {nValue: '', ptValue: '', mtValue: '', ttValue: ''}
+        this.state = {nValue: '', ptValue: '', mtValue: '', ttValue: ''};
     }
 
 

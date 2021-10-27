@@ -3,7 +3,7 @@ import React from "react";
 export default class General extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {fnValue: '', lnValue: '', eValue: '', mValue: ''}
+        this.state = {fnValue: '', lnValue: '', eValue: '', mValue: ''};
     }
 
 
