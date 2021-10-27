@@ -30,17 +30,13 @@ export default class Practical extends React.Component {
             <div className="container" id="container-3">
                 <h3 className="title">Practical</h3>
                 <form>
-                    <label htmlFor="company-name">Company Name</label>
-                    <input type='text' id="company-name" value={ nValue } onChange={this.setNValue.bind(this)} required></input>
+                    <input type='text' id="company-name" placeholder="Company Name" value={ nValue } onChange={this.setNValue.bind(this)} required></input>
 
-                    <label htmlFor="position-title">Position Title</label>
-                    <input type='text' id="position-title" value={ ptValue } onChange={this.setPtValue.bind(this)} required></input>
+                    <input type='text' id="position-title" placeholder="Position Title" value={ ptValue } onChange={this.setPtValue.bind(this)} required></input>
 
-                    <label htmlFor="main-tasks">Main Tasks</label>
-                    <input type='text' id="main-tasks" value={ mtValue } onChange={this.setMtValue.bind(this)} required></input>
+                    <input type='text' id="main-tasks" placeholder="Main Tasks" value={ mtValue } onChange={this.setMtValue.bind(this)} required></input>
 
-                    <label htmlFor="total-time">Years Worked</label>
-                    <input type='number' id="total-time" value={ttValue } onChange={this.setTtValue.bind(this)} required></input>
+                    <input type='number' id="total-time" placeholder="Duration of Position" value={ttValue } onChange={this.setTtValue.bind(this)} required></input>
 
                     <button type="button">Submit</button>
                 </form>

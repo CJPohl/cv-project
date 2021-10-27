@@ -5,21 +5,17 @@ import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
-import General from './components/General';
-import Education from './components/Education';
-import Practical from './components/Practical';
+import Header from './components/Header';
+import Main from './components/Main';
 import Footer from './components/Footer';
 
 import './styles/style.css';
 
 function App() {
   return (
-   <div className="main">
-      <h1 className="header">CV Application</h1>
-      <General />
-      <Education />
-      <Practical />
-      <button className="finish" type="button">Finish</button>
+   <div className="app">
+      <Header />
+      <Main />
       <Footer />
    </div>
   

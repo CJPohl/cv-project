@@ -30,17 +30,13 @@ export default class Education extends React.Component {
             <div className="container">
                 <h3 className="title">Education</h3>
                 <form>
-                    <label htmlFor="school-name">School Name</label>
-                    <input type='text' id="school-name" value={ nValue } onChange={this.setNValue.bind(this)} required></input>
+                    <input type='text' id="school-name" placeholder="School Name" value={ nValue } onChange={this.setNValue.bind(this)} required></input>
 
-                    <label htmlFor="study-name">Field of Study</label>
-                    <input type='text' id="study-name" value={ sValue } onChange={this.setSValue.bind(this)} required></input>
+                    <input type='text' id="study-name" placeholder="Program of Study" value={ sValue } onChange={this.setSValue.bind(this)} required></input>
 
-                    <label htmlFor="date-started">Date Started</label>
-                    <input type='date' id="date-started" value={ dsValue } onChange={this.setDsValue.bind(this)} required></input>
+                    <input type='date' id="date-started" placeholder="Date Started" value={ dsValue } onChange={this.setDsValue.bind(this)} required></input>
 
-                    <label htmlFor="date-finished">Date Finished</label>
-                    <input type='date' id="date-finished" value={deValue } onChange={this.setDeValue.bind(this)} required></input>
+                    <input type='date' id="date-finished" placeholder="Date Finished" value={deValue } onChange={this.setDeValue.bind(this)} required></input>
 
                     <button type="button">Submit</button>
                 </form>

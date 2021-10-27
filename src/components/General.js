@@ -30,17 +30,16 @@ export default class General extends React.Component {
             <div className="container">
                 <h3 className="title">General</h3>
                 <form>
-                    <label htmlFor="first-name">First Name</label>
-                    <input type='text' id="first-name" value={fnValue} onChange={this.setFnValue.bind(this)} required></input>
+                    <div className="names">
+                        <input type='text' id="first-name" placeholder="First Name" value={fnValue} onChange={this.setFnValue.bind(this)} required></input>
 
-                    <label htmlFor="last-name">Last Name</label>
-                    <input type='text' id="last-name" value={lnValue} onChange={this.setLnValue.bind(this)} required></input>
+                        <input type='text' id="last-name" placeholder="Last Name" value={lnValue} onChange={this.setLnValue.bind(this)} required></input>
+                    </div>
+                   
 
-                    <label htmlFor="email">Email</label>
-                    <input type='email' id="email" value={eValue} onChange={this.setEValue.bind(this)} required></input>
+                    <input type='email' id="email" placeholder="Email" value={eValue} onChange={this.setEValue.bind(this)} required></input>
 
-                    <label htmlFor="mobile-number">Mobile Phone Number</label>
-                    <input type='number' id="mobile-number" value={mValue} onChange={this.setMValue.bind(this)} required></input>
+                    <input type='number' id="mobile-number" placeholder="Phone Number" value={mValue} onChange={this.setMValue.bind(this)} required></input>
 
                     <button type="button">Submit</button>
                 </form>

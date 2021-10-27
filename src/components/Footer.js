@@ -7,7 +7,7 @@ export default class Footer extends React.Component {
             <div className="footer">
                  <p>Copyright @ 2021 Christopher J. Pohl</p>
             <a href='https://github.com/CJPohl' target='_blank'>
-                <i class='fab fa-github'></i>
+                <i className='fab fa-github'></i>
             </a>
             </div>
             
