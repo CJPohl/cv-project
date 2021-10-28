@@ -3,45 +3,66 @@ import React from "react";
 export default class Practical extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {nValue: '', ptValue: '', mtValue: '', ttValue: ''};
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.submitInputs = this.submitInputs.bind(this);
+        this.editInputs = this.editInputs.bind(this);
+
+        this.state = {isSubmitted: false}
     }
 
-
-    setNValue(e) {
-        this.setState({nValue: e.target.value});
-    }
-    
-    setPtValue(e) {
-        this.setState({ptValue: e.target.value});
+    handleInputChange(e) {
+        this.props.onInputChange(e);
     }
 
-    setMtValue(e) {
-        this.setState({mtValue: e.target.value});
+    submitInputs() {
+        this.setState({isSubmitted: true});
     }
 
-    setTtValue(e) {
-        this.setState({ttValue: e.target.value});
+    editInputs() {
+        this.setState({isSubmitted: false});
     }
-
 
     render() {
-        const { nValue, ptValue, mtValue, ttValue } = this.state;
+        const { cValue, ptValue, mtValue, ttValue } = this.props.practical;
+        let content;
+        if (this.state.isSubmitted === false) {
+            content = 
+                <div className="container">
+                    <h3 className="title">Practical</h3>
+                    <form>
+                        <input type='text' id="practical" name="cValue" placeholder="Company Name" value={ cValue } onChange={this.handleInputChange} required></input>
+
+                        <input type='text' id="practical" name="ptValue" placeholder="Position Title" value={ ptValue } onChange={this.handleInputChange} required></input>
+
+                        <textarea id="practical" placeholder="Main Tasks" name="mtValue" value={ mtValue } onChange={this.handleInputChange} required></textarea>
+
+                        <input type='number' id="practical" name="ttValue" placeholder="Duration of Position" value={ttValue } onChange={this.handleInputChange} required></input>
+
+                        <button type="button" onClick={this.submitInputs}>Submit</button>
+                    </form>
+                </div>
+            ;
+        }
+        else {
+            content = 
+                <div className="container">
+                    <h3 className="title">Practical</h3>
+                    <form>
+                        <p>Company Name: {cValue}</p>
+
+                        <p>Position Title: {ptValue}</p>
+
+                        <p>Main Tasks: {mtValue}</p>
+
+                        <p>Total Time: {ttValue} years</p>
+
+                        <button type="button" onClick={this.editInputs}>Edit</button>
+                    </form>
+                </div>
+            ;
+        }
         return (
-            <div className="container" id="container-3">
-                <h3 className="title">Practical</h3>
-                <form>
-                    <input type='text' id="company-name" placeholder="Company Name" value={ nValue } onChange={this.setNValue.bind(this)} required></input>
-
-                    <input type='text' id="position-title" placeholder="Position Title" value={ ptValue } onChange={this.setPtValue.bind(this)} required></input>
-
-                    <input type='text' id="main-tasks" placeholder="Main Tasks" value={ mtValue } onChange={this.setMtValue.bind(this)} required></input>
-
-                    <input type='number' id="total-time" placeholder="Duration of Position" value={ttValue } onChange={this.setTtValue.bind(this)} required></input>
-
-                    <button type="button">Submit</button>
-                </form>
-            </div>
-           
+           content
         )
     }
 }

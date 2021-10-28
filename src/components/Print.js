@@ -3,22 +3,8 @@ import React from "react";
 export default class Print extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { 
-            fnValue: 'First',
-            lnValue: 'Last',
-            eValue: 'thisisasamplemail@fake.universe',
-            mValue: '###-###-####',
-            cValue: 'Google',
-            ptValue: 'Fullstack Engineer',
-            mtValue: 'Leader of implementing both the front-end and back-end of company web applications',
-            ttValue: '5',
-            nValue: 'Harvard University',
-            sValue: 'BS Computer Science',
-            dsValue: '8/17/14',
-            deValue: '5/5/18',
-            gValue: '3.8'
-        }
     }
+
 
     render() {
         // deconstruct
@@ -26,17 +12,24 @@ export default class Print extends React.Component {
             fnValue,
             lnValue,
             eValue,
-            mValue,
+            mValue
+        } = this.props.general;
+
+        const {
             cValue,
             ptValue,
             mtValue,
             ttValue,
+        } = this.props.practical;
+
+        const {
             nValue,
             sValue,
             dsValue,
             deValue,
             gValue,
-        } = this.state;
+        } = this.props.education;
+        
         return (
             <div className="print">
                 <div className="print-name">

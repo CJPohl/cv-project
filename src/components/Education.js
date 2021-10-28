@@ -3,51 +3,68 @@ import React from "react";
 export default class Education extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {nValue: '', sValue: '', dsValue: '', deValue: '', gValue: ''};
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.submitInputs = this.submitInputs.bind(this);
+        this.editInputs = this.editInputs.bind(this);
+
+        this.state = {isSubmitted: false}
     }
 
-
-    setNValue(e) {
-        this.setState({nValue: e.target.value});
-    }
-    
-    setSValue(e) {
-        this.setState({sValue: e.target.value});
+    handleInputChange(e) {
+        this.props.onInputChange(e);
     }
 
-    setDsValue(e) {
-        this.setState({dsValue: e.target.value});
+    submitInputs() {
+        this.setState({isSubmitted: true});
     }
 
-    setDeValue(e) {
-        this.setState({deValue: e.target.value});
+    editInputs() {
+        this.setState({isSubmitted: false});
     }
-
-    setGValue(e) {
-        this.setState({gValue: e.target.value});
-    }
-
 
     render() {
-        const { nValue, sValue, dsValue, deValue, gValue } = this.state;
+        const { nValue, sValue, dsValue, deValue, gValue } = this.props.education;
+        let content;
+        if (this.state.isSubmitted === false) {
+            content = 
+                <div className="container">
+                    <h3 className="title">Education</h3>
+                    <form>
+                        <input type='text' id="education" name="nValue" placeholder="School Name" value={ nValue } onChange={this.handleInputChange} required></input>
+
+                        <input type='text' id="education" name="sValue" placeholder="Program of Study" value={ sValue } onChange={this.handleInputChange} required></input>
+
+                        <input type='date' id="education" name="dsValue" placeholder="Date Started" value={ dsValue } onChange={this.handleInputChange} required></input>
+
+                        <input type='date' id="education" name="deValue" placeholder="Date Finished" value={deValue } onChange={this.handleInputChange} required></input>
+
+                        <input type='number' id="education" name="gValue" placeholder="GPA" value={ gValue } onChange={this.handleInputChange} required></input>
+
+                        <button type="button" onClick={this.submitInputs}>Submit</button>
+                    </form>
+                </div>
+            ;
+        }
+        else {
+            content =
+                <div className="container">
+                    <h3 className="title">Education</h3>
+                    <form>
+                        <p>School Name: {nValue}</p>
+
+                        <p>Field of Study: {sValue}</p>
+
+                        <p>Date Started: {dsValue}</p>
+
+                        <p>Date Finished: {deValue}</p>
+
+                        <button type="button" onClick={this.editInputs}>Edit</button> 
+                    </form>
+                </div>
+            ;
+        }
         return (
-            <div className="container">
-                <h3 className="title">Education</h3>
-                <form>
-                    <input type='text' id="school-name" placeholder="School Name" value={ nValue } onChange={this.setNValue.bind(this)} required></input>
-
-                    <input type='text' id="study-name" placeholder="Program of Study" value={ sValue } onChange={this.setSValue.bind(this)} required></input>
-
-                    <input type='date' id="date-started" placeholder="Date Started" value={ dsValue } onChange={this.setDsValue.bind(this)} required></input>
-
-                    <input type='date' id="date-finished" placeholder="Date Finished" value={deValue } onChange={this.setDeValue.bind(this)} required></input>
-
-                    <input type='number' id="gpa" placeholder="GPA" value={ gValue } onChange={this.setGValue.bind(this)} required></input>
-
-                    <button type="button">Submit</button>
-                </form>
-            </div>
-           
+            content
         )
     }
 }

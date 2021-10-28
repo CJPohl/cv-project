@@ -25,6 +25,14 @@ input {
     border: none;
 }
 
+textarea {
+    width: 100%;
+    padding: 1rem;
+    font-family: inherit;
+    background-color: rgba(0, 0, 0, 0.082);
+    border: none;
+}
+
 button {
     width: 100%;
     padding: .8rem;
@@ -133,10 +141,6 @@ form {
     gap: 1rem;
 }
 
-#container-3 {
-   
-}
-
 .title {
   
 }
@@ -198,6 +202,12 @@ form {
     display: flex;
     flex-direction: column;
     gap: .7rem;
+}
+
+.finish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer {

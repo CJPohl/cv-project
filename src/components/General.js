@@ -3,48 +3,74 @@ import React from "react";
 export default class General extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {fnValue: '', lnValue: '', eValue: '', mValue: ''};
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.submitInputs = this.submitInputs.bind(this);
+        this.editInputs = this.editInputs.bind(this);
+
+        this.state = {isSubmitted: false}
     }
 
+    handleInputChange(e) {
+        this.props.onInputChange(e);
+    }
 
-    setFnValue(e) {
-        this.setState({fnValue: e.target.value});
+    submitInputs() {
+        this.setState({isSubmitted: true});
+    }
+
+    editInputs() {
+        this.setState({isSubmitted: false});
     }
     
-    setLnValue(e) {
-        this.setState({lnValue: e.target.value});
-    }
-
-    setEValue(e) {
-        this.setState({eValue: e.target.value});
-    }
-
-    setMValue(e) {
-        this.setState({mValue: e.target.value});
-    }
 
 
     render() {
-        const { fnValue, lnValue, eValue, mValue } = this.state;
-        return (
-            <div className="container">
-                <h3 className="title">General</h3>
-                <form>
-                    <div className="names">
-                        <input type='text' id="first-name" placeholder="First Name" value={fnValue} onChange={this.setFnValue.bind(this)} required></input>
+        const { fnValue, lnValue, eValue, mValue } = this.props.general;
+        let content;
+        if (this.state.isSubmitted === false) {
+            content = 
+                <div className="container">
+                    <h3 className="title">General</h3>
+                    <form>
+                        <div className="names">
+                            <input type='text' id="general" name="fnValue" placeholder="First Name" value={fnValue} onChange={this.handleInputChange} required></input>
 
-                        <input type='text' id="last-name" placeholder="Last Name" value={lnValue} onChange={this.setLnValue.bind(this)} required></input>
-                    </div>
+                            <input type='text' id="general" name="lnValue" placeholder="Last Name" value={lnValue} onChange={this.handleInputChange} required></input>
+                        </div>
+                    
+
+                        <input type='email' id="general" name="eValue" placeholder="Email" value={eValue} onChange={this.handleInputChange} required></input>
+
+                        <input type='number' id="general" name="mValue" placeholder="Phone Number" value={mValue} onChange={this.handleInputChange} required></input>
+
+                        <button type="button" onClick={this.submitInputs}>Submit</button>
+                    </form>
+                </div>
+            ;
+        }
+        else {
+            content =
+                <div className="container">
+                    <h3 className="title">General</h3>
+                    <form>
+                        <div className="names">
+                            <p>First Name: {fnValue}</p>
+
+                            <p>Last Name: {lnValue}</p>
+                        </div>
+
+                        <p>Email: {eValue}</p>
+
+                        <p>Phone Number: {mValue}</p>
+
+                        <button type="button" onClick={this.editInputs}>Edit</button>
+                    </form>
                    
-
-                    <input type='email' id="email" placeholder="Email" value={eValue} onChange={this.setEValue.bind(this)} required></input>
-
-                    <input type='number' id="mobile-number" placeholder="Phone Number" value={mValue} onChange={this.setMValue.bind(this)} required></input>
-
-                    <button type="button">Submit</button>
-                </form>
-            </div>
-           
+                </div>
+            ;
+        }
+        return (
+            content 
         )
     }
 }
