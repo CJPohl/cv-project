@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Montserrat:wght@500&display=swap");
 
 *,
 *::before,
@@ -9,229 +9,235 @@
 }
 
 html {
-    min-height: 100%;
+  min-height: 100%;
 }
 
-
 body {
-    font-family: "Monserrat", sans-serif;
+  font-family: "Monserrat", sans-serif;
+  font-size: 1rem;
 }
 
 input {
-    width: 100%;
-    padding: 1rem;
-    font-family: inherit;
-    background-color: rgba(0, 0, 0, 0.082);
-    border: none;
+  width: 100%;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: rgba(0, 0, 0, 0.082);
+  border: none;
 }
 
 textarea {
-    width: 100%;
-    padding: 1rem;
-    font-family: inherit;
-    background-color: rgba(0, 0, 0, 0.082);
-    border: none;
+  width: 100%;
+  padding: 1rem;
+  font-family: inherit;
+  background-color: rgba(0, 0, 0, 0.082);
+  border: none;
 }
 
 button {
-    width: 100%;
-    padding: .8rem;
-    background-color: white;
-    border: 1px solid black;
-    font-family: inherit;
-    cursor: pointer;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: white;
+  border: 1px solid black;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: rgba(0, 0, 0, 0.034);
+  background-color: rgba(0, 0, 0, 0.034);
 }
 
 #root {
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   margin: 2rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    border-radius: 1rem;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 1rem;
+  width: 100%;
 }
 
 .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.836);
-    height: 5rem;
-    width: 100%;
-    font-size: 1.2rem;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.836);
+  height: 5rem;
+  width: 100%;
+  font-size: 1.2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .main {
-    position: absolute;
-    top: 5rem;
-    bottom: 4rem;
-    left: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: 20fr 1fr 20fr;
+  position: absolute;
+  top: 5rem;
+  bottom: 4rem;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 20fr 1fr 20fr;
 }
 
 .form {
-    grid-column: 1;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    overflow: auto;
+  grid-column: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: auto;
 }
 
 .print {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    grid-column: 3;
-    margin: 1.5rem;
-    border: 1px solid rgb(0, 0, 0);
-    padding: 3rem 5rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  grid-column: 3;
+  margin: 1.5rem;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .container h3 {
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .names {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
-.title {
-  
+.submitted-form p {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.082);
 }
 
 .print-name {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: .8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.5rem;
 }
 
 .print-sub {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .print-spacer {
-    height: 1px;
-    width: 100%;
-    background-color: black;
-    margin: 2rem 0;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  margin: 2rem 0;
 }
 
 .print-practicals {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .print-practical {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .print-practical ul {
-    display: flex;
-    flex-direction: column;
-    gap: .7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
 .print-educations {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .print-education {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .print-education ul {
-    display: flex;
-    flex-direction: column;
-    gap: .7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
 .finish {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.836);
-    height: 4rem;
-    font-size: 1.2rem;
-    color: white;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.836);
+  height: 4rem;
+  font-size: 1.2rem;
+  color: white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .fa-github {
-    font-size: 1.8rem;
-    color: white;
+  font-size: 1.8rem;
+  color: white;
 }
 
 .fa-github:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
