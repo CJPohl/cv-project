@@ -1,105 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default class General extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.submitInputs = this.submitInputs.bind(this);
-    this.editInputs = this.editInputs.bind(this);
+const General = (props) => {
+  const [isSubmitted, changeSubmit] = useState(false);
 
-    this.state = { isSubmitted: false };
-  }
+  const { fnValue, lnValue, eValue, mValue } = props.general;
 
-  handleInputChange(e) {
-    this.props.onInputChange(e);
-  }
+  const handleInputChange = (e) => {
+    props.onInputChange(e);
+  };
 
-  submitInputs() {
-    this.setState({ isSubmitted: true });
-  }
+  const handleSubmit = () => {
+    changeSubmit(!isSubmitted);
+  };
 
-  editInputs() {
-    this.setState({ isSubmitted: false });
-  }
-
-  render() {
-    const { fnValue, lnValue, eValue, mValue } = this.props.general;
-    let content;
-    if (this.state.isSubmitted === false) {
-      content = (
-        <div className="container">
-          <h3 className="title">General</h3>
-          <form>
-            <div className="names">
-              <input
-                type="text"
-                id="general"
-                name="fnValue"
-                placeholder="First Name"
-                value={fnValue}
-                onChange={this.handleInputChange}
-                required
-              />
-
-              <input
-                type="text"
-                id="general"
-                name="lnValue"
-                placeholder="Last Name"
-                value={lnValue}
-                onChange={this.handleInputChange}
-                required
-              />
-            </div>
-
+  if (!isSubmitted) {
+    return (
+      <div className="container">
+        <h3 className="title">General</h3>
+        <form>
+          <div className="names">
             <input
-              type="email"
+              type="text"
               id="general"
-              name="eValue"
-              placeholder="Email"
-              value={eValue}
-              onChange={this.handleInputChange}
+              name="fnValue"
+              placeholder="First Name"
+              value={fnValue}
+              onChange={handleInputChange}
               required
             />
 
             <input
-              type="number"
+              type="text"
               id="general"
-              name="mValue"
-              placeholder="Phone Number"
-              value={mValue}
-              onChange={this.handleInputChange}
+              name="lnValue"
+              placeholder="Last Name"
+              value={lnValue}
+              onChange={handleInputChange}
               required
             />
+          </div>
 
-            <button type="button" onClick={this.submitInputs}>
-              Submit
-            </button>
-          </form>
-        </div>
-      );
-    } else {
-      content = (
-        <div className="container">
-          <h3 className="title">General</h3>
-          <form className="submitted-form">
-            <div className="names">
-              <p>First Name: {fnValue}</p>
+          <input
+            type="email"
+            id="general"
+            name="eValue"
+            placeholder="Email"
+            value={eValue}
+            onChange={handleInputChange}
+            required
+          />
 
-              <p>Last Name: {lnValue}</p>
-            </div>
+          <input
+            type="number"
+            id="general"
+            name="mValue"
+            placeholder="Phone Number"
+            value={mValue}
+            onChange={handleInputChange}
+            required
+          />
 
-            <p>Email: {eValue}</p>
+          <button type="button" onClick={handleSubmit}>
+            Submit
+          </button>
+        </form>
+      </div>
+    );
+  } else {
+    return (
+      <div className="container">
+        <h3 className="title">General</h3>
+        <form className="submitted-form">
+          <div className="names">
+            <p>First Name: {fnValue}</p>
 
-            <p>Phone Number: {mValue}</p>
+            <p>Last Name: {lnValue}</p>
+          </div>
 
-            <button type="button" onClick={this.editInputs}>
-              Edit
-            </button>
-          </form>
-        </div>
-      );
-    }
-    return content;
+          <p>Email: {eValue}</p>
+
+          <p>Phone Number: {mValue}</p>
+
+          <button type="button" onClick={handleSubmit}>
+            Edit
+          </button>
+        </form>
+      </div>
+    );
   }
-}
+};
+
+export default General;

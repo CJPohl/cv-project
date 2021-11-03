@@ -1,60 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Form from "./Form";
 import Print from "./Print";
 
-export default class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      general: {
-        fnValue: "",
-        lnValue: "",
-        eValue: "",
-        mValue: "",
-      },
-      practical: {
-        cValue: "",
-        ptValue: "",
-        mtValue: "",
-        ttValue: "",
-      },
-      education: {
-        nValue: "",
-        sValue: "",
-        dsValue: "",
-        deValue: "",
-        gValue: "",
-      },
-    };
+const Main = () => {
+  const [form, updateForm] = useState({
+    general: {
+      fnValue: "",
+      lnValue: "",
+      eValue: "",
+      mValue: "",
+    },
+    practical: {
+      cValue: "",
+      ptValue: "",
+      mtValue: "",
+      ttValue: "",
+    },
+    education: {
+      nValue: "",
+      sValue: "",
+      dsValue: "",
+      deValue: "",
+      gValue: "",
+    },
+  });
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
+  const { general, practical, education } = form;
 
-  handleInputChange(e) {
+  const handleInputChange = (e) => {
     const inputType = e.target.id;
     const { value } = e.target;
     const inputName = e.target.name;
-    this.setState({
+    updateForm({
+      ...form,
       [inputType]: {
-        ...this.state[inputType],
+        ...form[inputType],
         [inputName]: value,
       },
     });
-  }
+  };
 
-  render() {
-    const { general, practical, education } = this.state;
-    return (
-      <div className="main">
-        <Form
-          general={general}
-          practical={practical}
-          education={education}
-          onInputChange={this.handleInputChange}
-        />
-        <Print general={general} practical={practical} education={education} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="main">
+      <Form
+        general={general}
+        practical={practical}
+        education={education}
+        onInputChange={handleInputChange}
+      />
+      <Print general={general} practical={practical} education={education} />
+    </div>
+  );
+};
+
+export default Main;
